@@ -1,14 +1,10 @@
 import express from "express";
-import cors from "cors";
+import accompagnantRoutes from "./routes/accompagnant.routes.js";
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
 
-// route de test
-app.get("/api/test", (req, res) => {
-  res.status(200).json({ status: "OK" });
-});
+app.use("/api", accompagnantRoutes);
 
 export default app;
