@@ -1,7 +1,7 @@
 
 
 import './App.css'
-import AccompagnantList from './components/accompagnants/AccompagnantList'
+import AccompagnantListWithStatus from './components/accompagnants/AccompagnantListWithStatus'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import BonjourSection from './components/dashboard/BonjourSection'
@@ -15,7 +15,7 @@ function App() {
         <div className="container">
           <BonjourSection />
           <AccompagnementCard />
-          <AccompagnantList />
+          <AccompagnantListWithStatus />
         </div>
       </main>
       <Footer />

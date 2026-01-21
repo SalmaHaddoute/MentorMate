@@ -1,5 +1,5 @@
 .accompagnement-card {
-  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  background: linear-gradient(135deg, #535470 0%, #535470 100%);
   border-radius: 20px;
   padding: 32px;
   border: 1px solid rgba(83, 84, 112, 0.3);
@@ -58,7 +58,7 @@
 
 .btn-primary {
   background: rgba(255, 255, 255, 0.95);
-  color: #535470;
+  color: #DAA64F;
   border: none;
   border-radius: 12px;
   padding: 14px 24px;
