@@ -1,10 +1,21 @@
 import mongoose from "mongoose";
 
-const accompagnantSchema = new mongoose.Schema({
-  nom: { type: String, required: true },
-  domaine: { type: String, required: true },
-  statut: { type: String, default: "disponible" },
-  photo: { type: String }
-});
+const accompagnantSchema = new mongoose.Schema(
+  {
+    nomComplet: {
+      type: String,
+      required: true,
+    },
+    domaineEtude: {
+      type: String,
+      required: true,
+    },
+    estDisponible: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
 export default mongoose.model("Accompagnant", accompagnantSchema);
