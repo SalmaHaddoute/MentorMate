@@ -40,9 +40,16 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
+.logo-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
 .logo-icon {
   font-size: 24px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -54,7 +61,7 @@
   color: #1a1a2e;
   margin: 0;
   letter-spacing: -0.5px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #667eea 100%);
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
