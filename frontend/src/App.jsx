@@ -1,7 +1,7 @@
 
 
-import './App.css'
-import AccompagnantListWithStatus from './components/accompagnants/AccompagnantListWithStatus'
+import './App-improved.css'
+import AccompagnantListWithAvailableBadge from './components/accompagnants/AccompagnantListWithAvailableBadge'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import BonjourSection from './components/dashboard/BonjourSection'
@@ -15,7 +15,7 @@ function App() {
         <div className="container">
           <BonjourSection />
           <AccompagnementCard />
-          <AccompagnantListWithStatus />
+          <AccompagnantListWithAvailableBadge />
         </div>
       </main>
       <Footer />

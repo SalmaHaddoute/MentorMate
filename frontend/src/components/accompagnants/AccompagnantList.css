@@ -7,6 +7,72 @@
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* Styles pour le bouton de toggle des badges */
+.btn-toggle-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #667eea;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-toggle-badges:hover {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn-toggle-badges.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.btn-toggle-badges.active:hover {
+  background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Styles pour le badge global disponible */
+.global-available-badge {
+  margin-bottom: 24px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  animation: fade-in-up 0.5s ease-out;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styles pour le résumé des disponibilités */
+.available-summary {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: #10b981;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-left: 12px;
+}
+
 /* Styles pour les actions d'en-tête */
 .header-actions {
   display: flex;
