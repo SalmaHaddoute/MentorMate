@@ -6,6 +6,10 @@ const accompagnantSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    photo: {
+      type: String, // URL ou nom de fichier
+      required: false,
+    },
     domaineEtude: {
       type: String,
       required: true,

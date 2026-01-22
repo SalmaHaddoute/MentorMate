@@ -2,19 +2,22 @@ import Accompagnant from "../models/Accompagnant.js";
 
 export const getAccompagnants = async (req, res) => {
   try {
-    const accompagnants = await Accompagnant.find();
+    const accompagnants = await Accompagnant.find({
+      estDisponible: true
+    }).select("nomComplet photo domaineEtude estDisponible");
 
-    res.status(200).json({
+    return res.status(200).json({
       success: true,
       data: accompagnants,
       meta: {
-        count: accompagnants.length,
-      },
+        count: accompagnants.length
+      }
     });
   } catch (error) {
+    console.error(error);
     res.status(500).json({
       success: false,
-      message: "Erreur lors de la récupération des accompagnants",
+      message: "Erreur lors de la récupération des accompagnants"
     });
   }
 };
