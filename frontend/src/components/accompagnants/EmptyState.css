@@ -1,0 +1,138 @@
+.empty-state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  min-height: 400px;
+  text-align: center;
+}
+
+.empty-state-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(218, 166, 79, 0.1) 0%, rgba(83, 84, 112, 0.1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border: 2px solid rgba(218, 166, 79, 0.2);
+}
+
+.icon-emoji {
+  font-size: 36px;
+}
+
+.empty-state-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.empty-state-description {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #64748b;
+  margin: 0 0 32px 0;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.empty-state-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-refresh {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(218, 166, 79, 0.3);
+}
+
+.btn-refresh:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 166, 79, 0.4);
+}
+
+.refresh-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.btn-refresh:hover .refresh-icon {
+  transform: rotate(180deg);
+}
+
+.btn-contact-support {
+  background: rgba(255, 255, 255, 0.9);
+  color: #535470;
+  border: 2px solid rgba(83, 84, 112, 0.2);
+  border-radius: 12px;
+  padding: 14px 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-contact-support:hover {
+  background: rgba(83, 84, 112, 0.1);
+  border-color: rgba(83, 84, 112, 0.4);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .empty-state-container {
+    padding: 60px 20px;
+    min-height: 350px;
+  }
+  
+  .empty-state-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+  }
+  
+  .icon-emoji {
+    font-size: 28px;
+  }
+  
+  .empty-state-title {
+    font-size: 20px;
+  }
+  
+  .empty-state-description {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  
+  .empty-state-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .btn-refresh,
+  .btn-contact-support {
+    width: 100%;
+    justify-content: center;
+  }
+}
