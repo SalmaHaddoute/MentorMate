@@ -2,73 +2,31 @@ import React, { useState, useEffect } from 'react';
 import './AccompagnantList.css';
 import LoadingSpinner from './LoadingSpinner';
 import EmptyState from './EmptyState';
+import { fetchAccompagnants } from '../../api/accompagnant.api';
 
 const AccompagnantList = () => {
   const [accompagnements, setAccompagnements] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Simulation d'un appel API
+  // Appel API réel
   useEffect(() => {
     const fetchAccompagnements = async () => {
       try {
         setIsLoading(true);
-        // Simuler un délai de chargement
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        const response = await fetchAccompagnants();
         
-        // Mock data - replace with real API call
-        const mockData = [
-          {
-            id: 1,
-            title: "Accompagnement Personnalisé",
-            description: "Suivi individualisé avec mentor expert pour atteindre vos objectifs professionnels",
-            rating: "+4.9 ",
-            image: "https://picsum.photos/seed/mentor1/70/70",
-            status: "available"
-          },
-          {
-            id: 2,
-            title: "Coaching de Carrière",
-            description: "Développez votre potentiel professionnel et trouvez votre voie",
-            rating: "+4.8 ",
-            image: "https://picsum.photos/seed/mentor2/70/70",
-            status: "available"
-          },
-          {
-            id: 3,
-            title: "Mentorat Tech",
-            description: "Apprentissage des technologies modernes avec des experts du secteur",
-            rating: "+5.0 ",
-            image: "https://picsum.photos/seed/mentor3/70/70",
-            status: "busy"
-          },
-          {
-            id: 4,
-            title: "Accompagnement Startup",
-            description: "Lancez votre projet entrepreneurial avec succès",
-            rating: "+4.7 ",
-            image: "https://picsum.photos/seed/mentor4/70/70",
-            status: "available"
-          },
-          {
-            id: 5,
-            title: "Leadership & Management",
-            description: "Développez vos compétences de leader et manager",
-            rating: "+4.9 ",
-            image: "https://picsum.photos/seed/mentor5/70/70",
-            status: "available"
-          },
-          {
-            id: 6,
-            title: "Transformation Digitale",
-            description: "Accompagnez votre transformation digitale avec nos experts",
-            rating: "+4.6 ",
-            image: "https://picsum.photos/seed/mentor6/70/70",
-            status: "busy"
-          }
-        ];
+        // Adapter les données de l'API au format du composant
+        const adaptedData = response.data.map(acc => ({
+          id: acc.id,
+          title: acc.nomComplet,
+          description: `Expert en ${acc.domaineEtude}`,
+          rating: acc.rating,
+          image: acc.photo,
+          status: acc.estDisponible ? "available" : "busy"
+        }));
         
-        setAccompagnements(mockData);
+        setAccompagnements(adaptedData);
         setError(null);
       } catch (err) {
         setError("Erreur lors du chargement des accompagnants");
@@ -81,42 +39,29 @@ const AccompagnantList = () => {
     fetchAccompagnements();
   }, []);
 
-  const handleRefresh = () => {
-    const fetchAccompagnements = async () => {
-      try {
-        setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        
-        // Simuler une nouvelle récupération de données
-        const mockData = [
-          {
-            id: 1,
-            title: "Accompagnement Personnalisé",
-            description: "Suivi individualisé avec mentor expert pour atteindre vos objectifs professionnels",
-            rating: "+4.9 ",
-            image: "https://picsum.photos/seed/mentor1/70/70",
-            status: "available"
-          },
-          {
-            id: 2,
-            title: "Coaching de Carrière",
-            description: "Développez votre potentiel professionnel et trouvez votre voie",
-            rating: "+4.8 ",
-            image: "https://picsum.photos/seed/mentor2/70/70",
-            status: "available"
-          }
-        ];
-        
-        setAccompagnements(mockData);
-        setError(null);
-      } catch (err) {
-        setError("Erreur lors du chargement des accompagnants");
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchAccompagnements();
+  const handleRefresh = async () => {
+    try {
+      setIsLoading(true);
+      const response = await fetchAccompagnants();
+      
+      // Adapter les données de l'API au format du composant
+      const adaptedData = response.data.map(acc => ({
+        id: acc.id,
+        title: acc.nomComplet,
+        description: `Expert en ${acc.domaineEtude}`,
+        rating: acc.rating,
+        image: acc.photo,
+        status: acc.estDisponible ? "available" : "busy"
+      }));
+      
+      setAccompagnements(adaptedData);
+      setError(null);
+    } catch (error) {
+      setError("Erreur lors du chargement des accompagnants");
+      console.error('Error refreshing accompagnements:', error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // État de chargement
