@@ -1,0 +1,50 @@
+.dashboard {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+/* grille globale : 2 colonnes (main + right panel) */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 360px; /* main + colonne droite */
+  gap: 24px;
+  align-items: start;
+}
+
+/* header */
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dashboard-title {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 900;
+}
+
+.dashboard-subtitle {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* colonne droite : sticky comme un panel */
+.right-panel {
+  position: sticky;
+  top: 24px;
+  display: grid;
+  gap: 16px;
+}
+
+/* cartes “placeholder” pour simuler les blocs Figma */
+.placeholder-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  min-height: 120px;
+}
