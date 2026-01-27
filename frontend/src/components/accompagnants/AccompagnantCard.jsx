@@ -1,4 +1,5 @@
 import StatusBadge from "./StatusBadge";
+import DemandeAideButton from "../demandeAide/DemandeAideButton";
 import "./AccompagnantCard.css";
 
 export default function AccompagnantCard({ a }) {
@@ -35,8 +36,13 @@ export default function AccompagnantCard({ a }) {
           className="ac-dot"
           style={{ background: dispo ? "#10b981" : "#ef4444" }}
         />
-        <span>{dispo ? "Disponible maintenant" : "Pas disponible pour le moment"}</span>
+        <span>
+          {dispo ? "Disponible maintenant" : "Pas disponible pour le moment"}
+        </span>
       </div>
+
+      {/* ✅ Bouton demande d’aide */}
+      <DemandeAideButton accompagnant={a} />
     </div>
   );
 }
