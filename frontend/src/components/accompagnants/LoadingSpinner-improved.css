@@ -1,0 +1,116 @@
+/* Styles améliorés pour le spinner de chargement */
+
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  min-height: 400px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(218, 166, 79, 0.2);
+  border-top: 4px solid #DAA64F;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 24px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #535470;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.loading-subtitle {
+  font-size: 14px;
+  color: #64748b;
+  margin: 8px 0 0 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  opacity: 0.8;
+}
+
+/* Variante plus petite */
+.loading-spinner.small {
+  padding: 40px 24px;
+  min-height: 200px;
+}
+
+.loading-spinner.small .spinner {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+  margin-bottom: 16px;
+}
+
+.loading-spinner.small .loading-text {
+  font-size: 14px;
+}
+
+.loading-spinner.small .loading-subtitle {
+  font-size: 12px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .loading-spinner {
+    padding: 40px 24px;
+    min-height: 300px;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border-width: 3px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-text {
+    font-size: 14px;
+  }
+  
+  .loading-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-spinner {
+    padding: 32px 20px;
+    min-height: 250px;
+  }
+  
+  .spinner {
+    width: 36px;
+    height: 36px;
+    border-width: 3px;
+    margin-bottom: 16px;
+  }
+  
+  .loading-text {
+    font-size: 13px;
+  }
+  
+  .loading-subtitle {
+    font-size: 11px;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './EmptyState.css';
+import './EmptyState-improved.css';
 
 const EmptyState = () => {
   return (

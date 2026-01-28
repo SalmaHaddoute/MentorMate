@@ -1,0 +1,441 @@
+/* Styles améliorés pour la liste d'accompagnants */
+
+.accompagnant-section {
+  padding: 32px;
+  max-width: 100%;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.accompagnant-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #DAA64F, #535470, #DAA64F);
+  opacity: 0.6;
+}
+
+/* Header amélioré */
+.accompagnant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+.accompagnant-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0;
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+}
+
+/* Header actions alignées */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.see-all-link {
+  color: #535470;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  border: 2px solid rgba(83, 84, 112, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  min-height: 44px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.see-all-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(218, 166, 79, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.see-all-link:hover::before {
+  left: 100%;
+}
+
+.see-all-link:hover {
+  color: white;
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(218, 166, 79, 0.3);
+  border-color: transparent;
+}
+
+.see-all-link:active {
+  transform: translateY(0);
+}
+
+/* Liste de cartes améliorée */
+.accompagnant-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 24px;
+  padding: 0;
+}
+
+/* Cartes avec effet de profondeur */
+.accompagnant-card,
+.accompagnant-card-with-badge {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.accompagnant-card:hover,
+.accompagnant-card-with-badge:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(218, 166, 79, 0.3);
+}
+
+.accompagnant-card::before,
+.accompagnant-card-with-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #DAA64F, #535470, #DAA64F);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.accompagnant-card:hover::before,
+.accompagnant-card-with-badge:hover::before {
+  opacity: 0.8;
+}
+
+/* Images améliorées */
+.accompagnant-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.accompagnant-card:hover .accompagnant-image,
+.accompagnant-card-with-badge:hover .accompagnant-image {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+}
+
+/* Boutons de contact améliorés */
+.contact-btn {
+  width: 100%;
+  padding: 16px 24px;
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Inter', -apple-system, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 16px rgba(218, 166, 79, 0.3);
+}
+
+.contact-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(218, 166, 79, 0.4);
+}
+
+.contact-btn:disabled {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  .accompagnant-list {
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .accompagnant-section {
+    padding: 24px 20px;
+  }
+  
+  .accompagnant-header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .accompagnant-title {
+    font-size: 24px;
+  }
+  
+  .accompagnant-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .accompagnant-card,
+  .accompagnant-card-with-badge {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .accompagnant-section {
+    padding: 20px 16px;
+  }
+  
+  .accompagnant-header {
+    padding: 16px;
+  }
+  
+  .accompagnant-title {
+    font-size: 20px;
+  }
+  
+  .accompagnant-card,
+  .accompagnant-card-with-badge {
+    padding: 20px;
+  }
+}
+
+/* Animations d'apparition */
+.accompagnant-card,
+.accompagnant-card-with-badge {
+  animation: card-appear 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.accompagnant-card:nth-child(1),
+.accompagnant-card-with-badge:nth-child(1) { animation-delay: 0.1s; }
+.accompagnant-card:nth-child(2),
+.accompagnant-card-with-badge:nth-child(2) { animation-delay: 0.2s; }
+.accompagnant-card:nth-child(3),
+.accompagnant-card-with-badge:nth-child(3) { animation-delay: 0.3s; }
+.accompagnant-card:nth-child(4),
+.accompagnant-card-with-badge:nth-child(4) { animation-delay: 0.4s; }
+.accompagnant-card:nth-child(5),
+.accompagnant-card-with-badge:nth-child(5) { animation-delay: 0.5s; }
+.accompagnant-card:nth-child(6),
+.accompagnant-card-with-badge:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes card-appear {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Styles pour le bouton de toggle des badges */
+.btn-toggle-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #535470;
+  border: 2px solid rgba(83, 84, 112, 0.2);
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-toggle-badges::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(218, 166, 79, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-toggle-badges:hover::before {
+  left: 100%;
+}
+
+.btn-toggle-badges:hover {
+  background: rgba(218, 166, 79, 0.1);
+  border-color: rgba(218, 166, 79, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(218, 166, 79, 0.2);
+  color: #DAA64F;
+}
+
+.btn-toggle-badges.active {
+  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(218, 166, 79, 0.3);
+}
+
+.btn-toggle-badges.active:hover {
+  background: linear-gradient(135deg, #c49440 0%, #45465f 100%);
+  box-shadow: 0 8px 24px rgba(218, 166, 79, 0.4);
+  transform: translateY(-3px);
+}
+
+.btn-toggle-badges:active {
+  transform: translateY(0);
+}
+
+/* Styles pour le bouton de vérification de statut */
+.btn-refresh-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #535470;
+  border: 2px solid rgba(83, 84, 112, 0.2);
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-refresh-status::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-refresh-status:hover::before {
+  left: 100%;
+}
+
+.btn-refresh-status:hover:not(:disabled) {
+  background: rgba(102, 126, 234, 0.1);
+  border-color: rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+  color: #667eea;
+}
+
+.btn-refresh-status:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: rgba(156, 163, 175, 0.1);
+  border-color: rgba(156, 163, 175, 0.3);
+  color: #9ca3af;
+}
+
+.btn-refresh-status.checking {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.btn-refresh-status.checking .refresh-icon {
+  animation: spin 1s linear infinite;
+}
+
+.btn-refresh-status:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Icônes améliorées */
+.badge-icon,
+.refresh-icon {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.btn-toggle-badges:hover .badge-icon {
+  transform: scale(1.1);
+}
+
+.btn-refresh-status:hover:not(:disabled) .refresh-icon {
+  transform: scale(1.1);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
