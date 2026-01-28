@@ -1,4 +1,5 @@
 import AccompagnantList from "./components/accompagnants/AccompagnantList";
+import "./App.css";
 
 export default function App() {
   return (
