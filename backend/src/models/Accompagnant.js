@@ -7,7 +7,7 @@ const accompagnantSchema = new mongoose.Schema(
       required: true,
     },
     photo: {
-      type: String, // URL ou nom de fichier
+      type: String,
       required: false,
     },
     domaineEtude: {
@@ -16,7 +16,15 @@ const accompagnantSchema = new mongoose.Schema(
     },
     estDisponible: {
       type: Boolean,
-      default: false,
+      default: true,
+    },
+    rating: {
+      type: String,
+      required: false,
+    },
+    sessions: {
+      type: Number,
+      default: 0,
     },
   },
   { timestamps: true }
