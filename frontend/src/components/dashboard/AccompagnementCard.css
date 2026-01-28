@@ -1,5 +1,5 @@
 .accompagnement-card {
-  background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
+   background: linear-gradient(135deg, #DAA64F 0%, #535470 100%);
   border-radius: 20px;
   padding: 32px;
   border: 1px solid rgba(83, 84, 112, 0.3);
@@ -58,16 +58,20 @@
 
 .btn-primary {
   background: rgba(255, 255, 255, 0.95);
-  color: #535470;
+  color: #DAA64F;
   border: none;
-  border-radius: 12px;
-  padding: 14px 24px;
+  border-radius: 16px;
+  padding: 12px 20px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
 }
 
 .btn-primary:hover {
@@ -80,13 +84,17 @@
   background: transparent;
   color: #ffffff;
   border: 2px solid rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  padding: 14px 24px;
+  border-radius: 16px;
+  padding: 12px 20px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
 }
 
 .btn-secondary:hover {

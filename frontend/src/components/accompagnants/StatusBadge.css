@@ -1,0 +1,140 @@
+.status-badge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.status-badge.checking {
+  opacity: 0.8;
+}
+
+.status-badge.checking::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: checking-shimmer 1.5s infinite;
+}
+
+@keyframes checking-shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.status-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+.checking-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+  animation: checking-pulse 1s infinite;
+}
+
+@keyframes checking-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
+
+.status-label {
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.status-timestamp {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  color: #64748b;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.timestamp-text {
+  white-space: nowrap;
+}
+
+/* Variants pour différents contextes */
+.status-badge.small {
+  padding: 4px 8px;
+  font-size: 10px;
+}
+
+.status-badge.large {
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.status-badge.large .status-icon {
+  font-size: 12px;
+}
+
+/* États spécifiques */
+.status-badge[data-status="available"] {
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.status-badge[data-status="busy"] {
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
+.status-badge[data-status="offline"] {
+  box-shadow: 0 2px 8px rgba(107, 114, 128, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .status-badge {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  
+  .status-icon {
+    font-size: 9px;
+  }
+  
+  .status-timestamp {
+    font-size: 9px;
+  }
+}

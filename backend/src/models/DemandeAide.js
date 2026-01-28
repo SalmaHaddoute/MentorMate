@@ -1,23 +1,35 @@
-import mongoose from "mongoose";
+import { demandes } from "../data/demandeAide.store.js";
 
-const demandeAideSchema = new mongoose.Schema(
-  {
-    accompagnant: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Accompagnant',
-      required: true,
-    },
-    message: {
-      type: String,
-      required: true,
-    },
-    statut: {
-      type: String,
-      enum: ['en_attente', 'acceptee', 'refusee'],
-      default: 'en_attente',
-    },
-  },
-  { timestamps: true }
-);
+function genId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
 
-export default mongoose.model("DemandeAide", demandeAideSchema);
+export function createDemande({ accompagnantId, message, studentName }) {
+  const now = new Date().toISOString();
+
+  const demande = {
+    _id: genId(),
+    accompagnantId,
+    message: message ?? "",
+    studentName: studentName ?? "Student",
+    statut: "pending",
+    createdAt: now,
+    updatedAt: now,
+  };
+
+  demandes.push(demande);
+  return demande;
+}
+
+export function getDemandeById(id) {
+  return demandes.find((d) => d._id === id) || null;
+}
+
+export function updateDemandeStatus(id, statut) {
+  const d = demandes.find((x) => x._id === id);
+  if (!d) return null;
+
+  d.statut = statut;
+  d.updatedAt = new Date().toISOString();
+  return d;
+}

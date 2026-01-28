@@ -1,51 +1,39 @@
-import DemandeAide from "../models/DemandeAide.js";
-import Accompagnant from "../models/Accompagnant.js";
+import {
+  createDemande,
+  getDemandeById,
+  updateDemandeStatus,
+} from "../services/demandeAide.service.js";
 
-export const createDemandeAide = async (req, res) => {
-  try {
-    const { accompagnantId, message } = req.body;
+export function postDemandeAide(req, res) {
+  const { accompagnantId, message, studentName } = req.body || {};
 
-    // 1. Vérifier les champs
-    if (!accompagnantId || !message) {
-      return res.status(400).json({
-        success: false,
-        message: "accompagnantId et message sont obligatoires",
-      });
-    }
-
-    // 2. Vérifier que l'accompagnant existe
-    const accompagnant = await Accompagnant.findById(accompagnantId);
-
-    if (!accompagnant) {
-      return res.status(404).json({
-        success: false,
-        message: "Accompagnant introuvable",
-      });
-    }
-
-    // 3. Vérifier la disponibilité
-    if (!accompagnant.estDisponible) {
-      return res.status(400).json({
-        success: false,
-        message: "Accompagnant indisponible",
-      });
-    }
-
-    // 4. Créer la demande
-    const demande = await DemandeAide.create({
-      accompagnant: accompagnantId,
-      message,
-    });
-
-    return res.status(201).json({
-      success: true,
-      data: demande,
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: "Erreur lors de la création de la demande d'aide",
-    });
+  if (!accompagnantId) {
+    return res.status(400).json({ message: "accompagnantId is required" });
   }
-};
+
+  const demande = createDemande({ accompagnantId, message, studentName });
+  return res.status(201).json(demande);
+}
+
+export function getDemandeAide(req, res) {
+  const { id } = req.params;
+  const demande = getDemandeById(id);
+
+  if (!demande) return res.status(404).json({ message: "Not found" });
+  return res.json(demande);
+}
+
+export function patchDemandeAide(req, res) {
+  const { id } = req.params;
+  const { statut } = req.body || {};
+  const allowed = ["pending", "accepted", "rejected"];
+
+  if (!allowed.includes(statut)) {
+    return res.status(400).json({ message: "Invalid statut" });
+  }
+
+  const updated = updateDemandeStatus(id, statut);
+  if (!updated) return res.status(404).json({ message: "Not found" });
+
+  return res.json(updated);
+}

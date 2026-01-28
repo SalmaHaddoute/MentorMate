@@ -1,7 +1,6 @@
-
-
-import './App.css'
-import AccompagnantList from './components/accompagnants/AccompagnantList'
+import AccompagnantsPage from "./pages/AccompagnantsPage.jsx";
+import './App-improved.css'
+import AccompagnantListWithAvailableBadge from './components/accompagnants/AccompagnantListWithAvailableBadge'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import BonjourSection from './components/dashboard/BonjourSection'
@@ -15,12 +14,12 @@ function App() {
         <div className="container">
           <BonjourSection />
           <AccompagnementCard />
-          <AccompagnantList />
+          <AccompagnantListWithAvailableBadge />
+          <AccompagnantsPage />
         </div>
       </main>
       <Footer />
     </>
   )
 }
-
 export default App
