@@ -1,0 +1,202 @@
+.available-now-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.available-now-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.4);
+}
+
+.badge-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+.badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.available-icon {
+  font-size: 16px;
+  z-index: 2;
+  position: relative;
+}
+
+.pulse-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.available-now-badge.animated .pulse-dot {
+  animation: pulse-animation 2s ease-in-out infinite;
+}
+
+@keyframes pulse-animation {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.4;
+  }
+}
+
+.badge-text {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.available-count {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.available-label {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.95;
+  line-height: 1.2;
+}
+
+.badge-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  z-index: 1;
+}
+
+.available-now-badge.animated .badge-glow {
+  animation: shimmer-animation 3s ease-in-out infinite;
+}
+
+@keyframes shimmer-animation {
+  0%, 100% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+/* Variants */
+.available-now-badge.small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.available-now-badge.small .badge-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.available-now-badge.small .available-icon {
+  font-size: 14px;
+}
+
+.available-now-badge.small .available-count {
+  font-size: 16px;
+}
+
+.available-now-badge.small .available-label {
+  font-size: 11px;
+}
+
+.available-now-badge.large {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.available-now-badge.large .badge-icon {
+  width: 28px;
+  height: 28px;
+}
+
+.available-now-badge.large .available-icon {
+  font-size: 18px;
+}
+
+.available-now-badge.large .available-count {
+  font-size: 20px;
+}
+
+.available-now-badge.large .available-label {
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .available-now-badge {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+  .badge-icon {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .available-icon {
+    font-size: 14px;
+  }
+  
+  .available-count {
+    font-size: 16px;
+  }
+  
+  .available-label {
+    font-size: 11px;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .available-now-badge {
+    border: 2px solid #10b981;
+    background: #10b981;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .available-now-badge.animated .pulse-dot,
+  .available-now-badge.animated .badge-glow {
+    animation: none;
+  }
+}

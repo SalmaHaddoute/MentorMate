@@ -1,0 +1,91 @@
+.bonjour-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  padding: 24px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.bonjour-header {
+  flex: 1;
+}
+
+.bonjour-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.5px;
+}
+
+.bonjour-subtitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.streak-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.1);
+  min-width: 160px;
+}
+
+.streak-label {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  color: #92400e;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.streak-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.streak-icon {
+  font-size: 20px;
+}
+
+.streak-days {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #92400e;
+}
+
+@media (max-width: 768px) {
+  .bonjour-section {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  
+  .bonjour-title {
+    font-size: 24px;
+  }
+  
+  .bonjour-subtitle {
+    font-size: 14px;
+  }
+  
+  .streak-card {
+    align-self: flex-start;
+    min-width: auto;
+    width: 100%;
+  }
+}
