@@ -1,5 +1,6 @@
 import express from "express";
 import accompagnantRoutes from "./routes/accompagnant.routes.js";
+import cors from "cors";
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/api", accompagnantRoutes);
 
 export default app;
