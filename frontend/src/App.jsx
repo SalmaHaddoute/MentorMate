@@ -1,3 +1,7 @@
+import AccompagnantsPage from "./pages/AccompagnantsPage.jsx";
+
+export default function App() {
+  return <AccompagnantsPage />;
 
 
 import './App-improved.css'
@@ -22,5 +26,3 @@ function App() {
     </>
   )
 }
-
-export default App
